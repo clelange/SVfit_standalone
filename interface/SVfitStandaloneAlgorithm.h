@@ -1,10 +1,10 @@
 #ifndef TauAnalysis_SVfitStandalone_SVfitStandaloneAlgorithm_h
 #define TauAnalysis_SVfitStandalone_SVfitStandaloneAlgorithm_h
 
-#include "TauAnalysis/SVfitStandalone/interface/SVfitStandaloneLikelihood.h"
-#include "TauAnalysis/SVfitStandalone/interface/SVfitStandaloneMarkovChainIntegrator.h"
-#include "TauAnalysis/SVfitStandalone/interface/svFitStandaloneAuxFunctions.h"
-#include "TauAnalysis/SVfitStandalone/interface/SVfitStandaloneQuantities.h"
+#include "SVfitStandaloneLikelihood.h"
+#include "SVfitStandaloneMarkovChainIntegrator.h"
+#include "svFitStandaloneAuxFunctions.h"
+#include "SVfitStandaloneQuantities.h"
 
 #include <TMath.h>
 #include <TArrayF.h>
@@ -18,14 +18,14 @@ using svFitStandalone::MeasuredTauLepton;
 
 
 /**
-   \class   SVfitStandaloneAlgorithm SVfitStandaloneAlgorithm.h "TauAnalysis/SVfitStandalone/interface/SVfitStandaloneAlgorithm.h"
+   \class   SVfitStandaloneAlgorithm SVfitStandaloneAlgorithm.h "SVfitStandaloneAlgorithm.h"
 
    \brief   Standalone version of the SVfitAlgorithm.
 
    This class is a standalone version of the SVfitAlgorithm to perform the full reconstruction of a di-tau resonance system. The
    implementation is supposed to deal with any combination of leptonic or hadronic tau decays. It exploits likelihood functions
-   as defined in interface/LikelihoodFunctions.h of this package, which are combined into a single likelihood function as defined
-   interface/SVfitStandaloneLikelihood.h in this package. The combined likelihood function depends on the following variables:
+   as defined in LikelihoodFunctions.h of this package, which are combined into a single likelihood function as defined
+   SVfitStandaloneLikelihood.h in this package. The combined likelihood function depends on the following variables:
 
    \var nunuMass   : the invariant mass of the neutrino system for each decay branch (two parameters)
    \var decayAngle : the decay angle in the restframe of each decay branch (two parameters)
@@ -45,7 +45,7 @@ using svFitStandalone::MeasuredTauLepton;
    one (tau-) neutrino is involved in the decay. The original number of free parameters of 6 is therefore reduced by one for each
    hadronic tau decay within the resonance. All information about the negative log likelihood is stored in the SVfitStandaloneLikelihood
    class as defined in the same package. This class interfaces the combined likelihood to the ROOT::Math::Minuit minimization program.
-   It does setup/initialize the fit parameters as defined in interface/SVfitStandaloneLikelihood.h in this package, initializes the
+   It does setup/initialize the fit parameters as defined in SVfitStandaloneLikelihood.h in this package, initializes the
    minimization procedure, executes the fit algorithm and returns the fit result. The fit result consists of the fully reconstructed
    di-tau system, from which also the invariant mass can be derived.
 
@@ -127,7 +127,7 @@ class SVfitStandaloneAlgorithm
   bool isValidFit() const { return fitStatus_ == 0; }
   /// return whether this is a valid solution or not
   bool isValidNLL() const { return nllStatus_ == 0; }
-  
+
   // DO NOT CALL THE FOLLOWING FUNCTION AFTER MARKOV CHAIN INTEGRATION BUT USE THE QUANTITIES ADAPTER AS IN THE TEST CODE
   /// return mass of the di-tau system
   double mass() const { return mass_; }

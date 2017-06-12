@@ -1,8 +1,8 @@
-#include "TauAnalysis/SVfitStandalone/interface/SVfitStandaloneQuantities.h"
+#include "../interface/SVfitStandaloneQuantities.h"
 
 #include "Math/Factory.h"
 #include "Math/Functor.h"
-#include "Math/GSLMCIntegrator.h"
+// #include "Math/GSLMCIntegrator.h"
 #include "Math/LorentzVector.h"
 #include "Math/PtEtaPhiM4D.h"
 
@@ -366,7 +366,7 @@ namespace svFitStandalone
     MCQuantitiesAdapter()
   {
     quantities_.clear();
-    
+
     quantities_.push_back(new HiggsPtSVfitQuantity());
     quantities_.push_back(new HiggsEtaSVfitQuantity());
     quantities_.push_back(new HiggsPhiSVfitQuantity());
@@ -389,4 +389,3 @@ namespace svFitStandalone
   double MCPtEtaPhiMassAdapter::getTransverseMassUncert() const { return ExtractUncertainty(4); }
   double MCPtEtaPhiMassAdapter::getTransverseMassLmax() const { return ExtractLmax(4); }
 }
-

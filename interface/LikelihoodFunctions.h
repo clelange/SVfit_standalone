@@ -5,8 +5,8 @@
 #include "TH1.h"
 
 /**
-   \class   probMET LikelihoodFunctions.h "TauAnalysis/SVfitStandalone/interface/LikelihoodFunctions.h"
-   
+   \class   probMET LikelihoodFunctions.h "LikelihoodFunctions.h"
+
    \brief   Likelihood for MET
 
    Likelihood for MET. Input parameters are:
@@ -14,22 +14,22 @@
     pMETX  : difference between reconstructed MET and fitted MET in x
     pMETY  : difference between reconstructed MET and fitted MET in y
     covDet : determinant of the covariance matrix of the measured MET
-    covInv : 2-dim inverted covariance matrix for measured MET (to be 
+    covInv : 2-dim inverted covariance matrix for measured MET (to be
              determined from MET significance algorithm)
     power  : additional power to enhance the nll term
 */
 double probMET(double dMETX, double dMETY, double covDet, const TMatrixD& covInv, double power = 1., bool verbosity = false);
 
 /**
-   \class   probTauToLepPhaseSpace LikelihoodFunctions.h "TauAnalysis/SVfitStandalone/interface/LikelihoodFunctions.h"
-   
+   \class   probTauToLepPhaseSpace LikelihoodFunctions.h "LikelihoodFunctions.h"
+
    \brief   Matrix Element for leptonic tau decays. Input parameters are:
 
    \var decayAngle : decay angle in the restframe of the tau lepton decay
    \var visMass : measured visible mass
    \var nunuMass : fitted neutrino mass
 
-   The parameter tauLeptonMass2 is the mass of the tau lepton squared as defined in svFitStandaloneAuxFunctions.h    
+   The parameter tauLeptonMass2 is the mass of the tau lepton squared as defined in svFitStandaloneAuxFunctions.h
 
      NOTE: The formulas taken from the paper
              "Tau polarization and its correlations as a probe of new physics",
@@ -40,8 +40,8 @@ double probMET(double dMETX, double dMETY, double covDet, const TMatrixD& covInv
 double probTauToLepMatrixElement(double decayAngle, double nunuMass, double visMass, double x, bool applySinTheta, bool verbosity = false);
 
 /**
-   \class   probTauToHadPhaseSpace LikelihoodFunctions.h "TauAnalysis/SVfitStandalone/interface/LikelihoodFunctions.h"
-   
+   \class   probTauToHadPhaseSpace LikelihoodFunctions.h "LikelihoodFunctions.h"
+
    \brief   Likelihood for a two body tau decay into two hadrons
 
    Likelihood for a two body tau decay into two hadrons. Input parameters is:
@@ -51,8 +51,8 @@ double probTauToLepMatrixElement(double decayAngle, double nunuMass, double visM
 double probTauToHadPhaseSpace(double decayAngle, double nunuMass, double visMass, double x, bool applySinTheta, bool verbosity = false);
 
 /**
-   \class   probVisMass LikelihoodFunctions.h "TauAnalysis/SVfitStandalone/interface/LikelihoodFunctions.h"
-   
+   \class   probVisMass LikelihoodFunctions.h "LikelihoodFunctions.h"
+
    \brief   Likelihood for producing system of given mass in hadronic tau decay
 
    Likelihood for hadronic tau decay to produce visible decay products of true mass (visMass)
@@ -62,8 +62,8 @@ double probTauToHadPhaseSpace(double decayAngle, double nunuMass, double visMass
 double probVisMass(double visMass, const TH1* lutVisMass, bool verbosity = false);
 
 /**
-   \class   probVisMassShift, probVisPtShift LikelihoodFunctions.h "TauAnalysis/SVfitStandalone/interface/LikelihoodFunctions.h"
-   
+   \class   probVisMassShift, probVisPtShift LikelihoodFunctions.h "LikelihoodFunctions.h"
+
    \brief   Resolution on Pt and mass of hadronic taus
 
    Likelihood for a hadronic tau of true Pt and mass (visMass, visPt)

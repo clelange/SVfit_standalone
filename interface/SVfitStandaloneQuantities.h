@@ -1,9 +1,9 @@
 #ifndef TauAnalysis_SVfitStandalone_SVfitStandaloneQuantities_h
 #define TauAnalysis_SVfitStandalone_SVfitStandaloneQuantities_h
 
-#include "TauAnalysis/SVfitStandalone/interface/SVfitStandaloneLikelihood.h"
-#include "TauAnalysis/SVfitStandalone/interface/SVfitStandaloneMarkovChainIntegrator.h"
-#include "TauAnalysis/SVfitStandalone/interface/svFitStandaloneAuxFunctions.h"
+#include "SVfitStandaloneLikelihood.h"
+#include "SVfitStandaloneMarkovChainIntegrator.h"
+#include "svFitStandaloneAuxFunctions.h"
 
 #include <TMath.h>
 #include <TArrayF.h>
@@ -16,14 +16,14 @@ using svFitStandalone::LorentzVector;
 using svFitStandalone::MeasuredTauLepton;
 
 /**
-   \class   ObjectFunctionAdapter SVfitStandaloneAlgorithm.h "TauAnalysis/SVfitStandalone/interface/SVfitStandaloneAlgorithm.h"
+   \class   ObjectFunctionAdapter SVfitStandaloneAlgorithm.h "SVfitStandaloneAlgorithm.h"
 
    \brief   Function interface to minuit.
 
    This class is an interface, which is used as global function pointer of the combined likelihood as defined in src/SVfitStandaloneLikelihood.cc
    to VEGAS or minuit. It is a member of the of the SVfitStandaloneAlgorithm class defined below and is used in SVfitStandalone::fit(), or
    SVfitStandalone::integrate(), where it is passed on to a ROOT::Math::Functor. The parameters x correspond to the array of fit/integration
-   paramters as defined in interface/SVfitStandaloneLikelihood.h of this package. In the fit mode these are made known to minuit in the function
+   paramters as defined in SVfitStandaloneLikelihood.h of this package. In the fit mode these are made known to minuit in the function
    SVfitStandaloneAlgorithm::setup. In the integration mode the mapping is done internally in the SVfitStandaloneLikelihood::tansformint. This
    has to be in sync. with the definition of the integration boundaries in SVfitStandaloneAlgorithm::integrate.
 */
