@@ -12,6 +12,8 @@
 #include <TMatrixDSymEigen.h>
 #include <TVectorD.h>
 
+#include <numeric>
+
 namespace svFitStandalone
 {
   TH1* makeHistogram(const std::string& histogramName, double xMin, double xMax, double logBinWidth)

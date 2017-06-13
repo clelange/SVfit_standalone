@@ -1,6 +1,6 @@
 <lcgdict>
     <selection>
-    <class name="SVfitStandaloneAlgorithm::SVfitStandaloneAlgorithm"/>
+    <class name="SVfitStandaloneAlgorithm"/>
     <class name="SVfitStandaloneAlgorithm::measuredTauLeptons"/>
     <!-- <class name="SVfitStandaloneAlgorithm::measuredTauLeptons"/>
     <class name="SVfitStandaloneAlgorithm::measuredTauLeptons"/>
