@@ -1,5 +1,5 @@
 # CMakeLists.txt for event package. It creates a library with dictionary and a main program
-cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
+cmake_minimum_required(VERSION 2.8 FATAL_ERROR)
 project(svfit)
 
 # You need to tell CMake where to find the ROOT installation. This can be done in a number of ways:
@@ -16,13 +16,20 @@ include(${ROOT_USE_FILE})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/interface ${ROOT_INCLUDE_DIRS})
 add_definitions(${ROOT_CXX_FLAGS})
 
-#---Subdirectories
-#---subdirs(src)
+#---Find files
+file(GLOB sources *.cc)
+file(GLOB headers ${CMAKE_CURRENT_SOURCE_DIR}/interface/*.h)
 
-ROOT_GENERATE_DICTIONARY(G__SVfitStandaloneAlgorithm LikelihoodFunctions.h SVfitStandaloneAlgorithm.h SVfitStandaloneLikelihood.h SVfitStandaloneMarkovChainIntegrator.h SVfitStandaloneQuantities.h svFitStandaloneAuxFunctions.h)
+#---Generate dictionary
+#---ROOT_GENERATE_DICTIONARY(SVfitStandaloneAlgorithm ${headers})
+REFLEX_GENERATE_DICTIONARY(SVfitStandaloneAlgorithm ${headers} SELECTION selection.xml)
+add_library(SVfitStandaloneAlgorithmDict SHARED SVfitStandaloneAlgorithm.cxx)
+add_dependencies(SVfitStandaloneAlgorithmDict SVfitStandaloneAlgorithm-dictgen)
+target_link_libraries(SVfitStandaloneAlgorithmDict SVfitStandaloneAlgorithm ${ROOT_LIBRARIES})
+#install(TARGETS SVfitStandaloneAlgorithmDict DESTINATION lib)
 
 #---Create a shared library with generated dictionary
-add_library(SVfitStandaloneAlgorithm SHARED LikelihoodFunctions.cc SVfitStandaloneAlgorithm.cc SVfitStandaloneLikelihood.cc SVfitStandaloneMarkovChainIntegrator.cc SVfitStandaloneQuantities.cc svFitStandaloneAuxFunctions.cc)
+add_library(SVfitStandaloneAlgorithm SHARED ${sources})
 target_link_libraries(SVfitStandaloneAlgorithm ${ROOT_LIBRARIES})
 
 #---Create  a main program using the library
