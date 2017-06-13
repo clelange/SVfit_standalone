@@ -2,7 +2,7 @@
 
 #include "Math/Factory.h"
 #include "Math/Functor.h"
-// #include "Math/GSLMCIntegrator.h"
+#include "Math/GSLMCIntegrator.h"
 #include "Math/LorentzVector.h"
 #include "Math/PtEtaPhiM4D.h"
 
