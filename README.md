@@ -10,9 +10,10 @@ cd CMSSW_8_0_23/src
 cmsenv
 ```
 
-Go back to the `SVfit_standalone` directory.
+Clone this repository and change to the `SVfit_standalone` directory.
 ```
 mkdir build
+cd build
 cmake ../ -DCMAKE_INSTALL_PREFIX=../svFit
 make -j4
 make test ARGS="--output-on-failure"
