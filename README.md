@@ -20,8 +20,8 @@ make test ARGS="--output-on-failure"
 make install
 ```
 
-Now you should have the shared library `libSVfitStandaloneAlgorithm.so` and dictionary in the `../svFit` directory. To be able to load the library, you need to extend the `LD_LIBRARY_PATH`:
+Now you should have the shared library `libSVfitStandaloneAlgorithm.so` and dictionary in the `../svFit` directory. To be able to load the library, you need to extend the `LD_LIBRARY_PATH`. Run from the `build` directory:
 ```
-export LD_LIBRARY_PATH=${PWD}../svFit/lib:${LD_LIBRARY_PATH}
+export LD_LIBRARY_PATH=${PWD}/../svFit/lib:${LD_LIBRARY_PATH}
 ```
 This export is needed whenever you open a new shell.
